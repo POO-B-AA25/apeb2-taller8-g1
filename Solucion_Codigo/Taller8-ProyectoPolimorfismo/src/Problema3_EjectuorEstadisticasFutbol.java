@@ -8,11 +8,19 @@ public class Problema3_EjectuorEstadisticasFutbol {
         Random random = new Random();
         Scanner sc = new Scanner(System.in);
 
+<<<<<<< HEAD
 
         String[] nombres = {"Carlos", "Diego", "Fernando", "Gabriel", "Andrés", "Sebastián", "Mateo", "Santiago", 
                            "Alejandro", "Ricardo", "Pablo", "Joaquín", "Emilio", "Rodrigo", "Nicolás"};
         
 
+=======
+        // Nombres aleatorios para jugadores
+        String[] nombres = {"Carlos", "Diego", "Fernando", "Gabriel", "Andrés", "Sebastián", "Mateo", "Santiago", 
+                           "Alejandro", "Ricardo", "Pablo", "Joaquín", "Emilio", "Rodrigo", "Nicolás"};
+        
+        // RUTs aleatorios (simplificados)
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
         String[] ruts = {"12345678-9", "87654321-K", "11223344-5", "99887766-3", "55443322-1", 
                         "44556677-8", "33221100-2", "77889900-4", "66554433-7", "22334455-6",
                         "88776655-0", "99001122-9", "11337799-K", "55667788-3", "44332211-5"};
@@ -43,7 +51,11 @@ public class Problema3_EjectuorEstadisticasFutbol {
                 System.out.print("Opción: ");
                 
                 int tipoJugador = sc.nextInt();
+<<<<<<< HEAD
                 sc.nextLine(); 
+=======
+                sc.nextLine(); // Limpiar buffer
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
                 
                 if (tipoJugador < 1 || tipoJugador > 3) {
                     System.out.println("Opción inválida. Intente nuevamente.");
@@ -53,7 +65,11 @@ public class Problema3_EjectuorEstadisticasFutbol {
                 // Generar datos aleatorios del jugador
                 String nombre = nombres[random.nextInt(nombres.length)];
                 String rut = ruts[random.nextInt(ruts.length)];
+<<<<<<< HEAD
                 int dorsal = random.nextInt(23) + 7; 
+=======
+                int dorsal = random.nextInt(23) + 1; // Dorsales del 1 al 23
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
                 
                 // Verificar que el dorsal no esté repetido en este partido
                 boolean dorsalRepetido = false;
@@ -65,7 +81,11 @@ public class Problema3_EjectuorEstadisticasFutbol {
                 }
                 
                 if (dorsalRepetido) {
+<<<<<<< HEAD
                     dorsal = random.nextInt(15) + 1; // Generar nuevo dorsal
+=======
+                    dorsal = random.nextInt(23) + 1; // Generar nuevo dorsal
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
                 }
                 
                 System.out.println("Jugador generado: " + nombre + " (Dorsal: " + dorsal + ", RUT: " + rut + ")");
@@ -80,6 +100,7 @@ public class Problema3_EjectuorEstadisticasFutbol {
                         int recuperaciones = random.nextInt(8); // 0-7 recuperaciones
                         
                         Atacante atacante = new Atacante(nombre, dorsal, rut, goles, pases, recuperaciones);
+<<<<<<< HEAD
                         atacante.calcularValorGoles();
                         atacante.calcularValoracion();
                         jugadorCreado = atacante;
@@ -101,18 +122,47 @@ public class Problema3_EjectuorEstadisticasFutbol {
                     case 3 -> { 
                         int goles = 0; 
                         int atajadas = 2 + random.nextInt(8); 
+=======
+                        atacante.calcularValoracion();
+                        jugadorCreado = atacante;
+                        
+                        System.out.println("Atacante registrado - Goles: " + goles + ", Pases: " + pases + ", Recuperaciones: " + recuperaciones);
+                    }
+                    case 2 -> { // Defensor
+                        int goles = random.nextInt(2); // 0-1 goles
+                        int pases = 20 + random.nextInt(40); // 20-60 pases
+                        int recuperaciones = 3 + random.nextInt(12); // 3-15 recuperaciones
+                        
+                        Defensor defensor = new Defensor(nombre, dorsal, rut, goles, pases, recuperaciones);
+                        defensor.calcularValoracion();
+                        jugadorCreado = defensor;
+                        
+                        System.out.println("Defensor registrado - Goles: " + goles + ", Pases: " + pases + ", Recuperaciones: " + recuperaciones);
+                    }
+                    case 3 -> { // Portero
+                        int goles = 0; // Los porteros raramente anotan
+                        int atajadas = 2 + random.nextInt(8); // 2-10 atajadas
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
                         
                         Portero portero = new Portero(nombre, dorsal, rut, goles, atajadas);
                         portero.calcularValoracion();
                         jugadorCreado = portero;
                         
+<<<<<<< HEAD
                         System.out.println(jugadorCreado);
+=======
+                        System.out.println("Portero registrado - Goles: " + goles + ", Atajadas: " + atajadas);
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
                     }
                 }
                 
                 if (jugadorCreado != null) {
                     jugadoresPartido.add(jugadorCreado);
+<<<<<<< HEAD
 
+=======
+                    System.out.println("Valoración del jugador: " + jugadorCreado.valoracion + " puntos");
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
                 }
                 
                 System.out.println("\n¿Desea registrar otro jugador para este partido? (S/N)");
@@ -161,10 +211,16 @@ public class Problema3_EjectuorEstadisticasFutbol {
             Jugador j = jugadores.get(i);
             System.out.println((i + 1) + ". " + j.nombre + " (Dorsal: " + j.dorsal + ") - " + j.valoracion + " puntos");
         }
+<<<<<<< HEAD
+=======
+        
+        sc.close();
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     }
 }
 
 abstract class Jugador {
+<<<<<<< HEAD
     public String nombre;
     public int dorsal;
     public String rut;
@@ -172,6 +228,13 @@ abstract class Jugador {
     public double valoracion;
     public double valorGoles;
 
+=======
+    protected String nombre;
+    protected int dorsal;
+    protected String rut;
+    protected int goles;
+    protected double valoracion;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     
     public Jugador(String nombre, int dorsal, String rut, int goles) {
         this.nombre = nombre;
@@ -182,8 +245,13 @@ abstract class Jugador {
     
     public abstract void calcularValoracion();
     
+<<<<<<< HEAD
     public void calcularValorGoles() {
         this.valorGoles = this.goles * 30;
+=======
+    protected double calcularValorGoles() {
+        return goles * 30;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     }
     
     @Override
@@ -193,9 +261,14 @@ abstract class Jugador {
 }
 
 class Atacante extends Jugador {
+<<<<<<< HEAD
     public int pases;
     public int recuperaciones;
     public double valorRecuperaciones;
+=======
+    private int pases;
+    private int recuperaciones;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     
     public Atacante(String nombre, int dorsal, String rut, int goles, int pases, int recuperaciones) {
         super(nombre, dorsal, rut, goles);
@@ -205,8 +278,14 @@ class Atacante extends Jugador {
     
     @Override
     public void calcularValoracion() {
+<<<<<<< HEAD
         valorRecuperaciones = this.recuperaciones * 3;
         this.valoracion = super.valorGoles + this.valorRecuperaciones;
+=======
+        double valorGoles = calcularValorGoles();
+        double valorRecuperaciones = recuperaciones * 3;
+        this.valoracion = valorGoles + valorRecuperaciones;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     }
     
     @Override
@@ -216,9 +295,14 @@ class Atacante extends Jugador {
 }
 
 class Defensor extends Jugador {
+<<<<<<< HEAD
     public int pases;
     public int recuperaciones;
     public double valorRecuperaciones;
+=======
+    private int pases;
+    private int recuperaciones;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     
     public Defensor(String nombre, int dorsal, String rut, int goles, int pases, int recuperaciones) {
         super(nombre, dorsal, rut, goles);
@@ -228,8 +312,14 @@ class Defensor extends Jugador {
     
     @Override
     public void calcularValoracion() {
+<<<<<<< HEAD
         this.valorRecuperaciones = recuperaciones * 4;
         super.valoracion = super.valorGoles + this.valorRecuperaciones;
+=======
+        double valorGoles = calcularValorGoles();
+        double valorRecuperaciones = recuperaciones * 4;
+        this.valoracion = valorGoles + valorRecuperaciones;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     }
     
     @Override
@@ -239,8 +329,12 @@ class Defensor extends Jugador {
 }
 
 class Portero extends Jugador {
+<<<<<<< HEAD
     public int atajadas;
     public double valorAtajadas;
+=======
+    private int atajadas;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     
     public Portero(String nombre, int dorsal, String rut, int goles, int atajadas) {
         super(nombre, dorsal, rut, goles);
@@ -249,8 +343,14 @@ class Portero extends Jugador {
     
     @Override
     public void calcularValoracion() {
+<<<<<<< HEAD
         this.valorAtajadas = this.atajadas * 5;
         super.valoracion = super.valorGoles + this.valorAtajadas;
+=======
+        double valorGoles = calcularValorGoles();
+        double valorAtajadas = atajadas * 5;
+        this.valoracion = valorGoles + valorAtajadas;
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
     }
     
     @Override
@@ -271,9 +371,16 @@ class PartidoRegistro {
         this.nombrePartido = nombrePartido;
         this.equipo = equipo;
         this.jugadores = new ArrayList<>(jugadores);
+<<<<<<< HEAD
     }
     
     public void calcularValoracionTotal() {
+=======
+        this.calcularValoracionTotal();
+    }
+    
+    private void calcularValoracionTotal() {
+>>>>>>> 5e3829b40e6ba2d1b0e80b9581fd4d81af7f167b
         this.valoracionTotal = 0;
         for (Jugador jugador : jugadores) {
             this.valoracionTotal += jugador.valoracion;
